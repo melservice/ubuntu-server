@@ -14,7 +14,8 @@ ADD scripts/ /docker/init/
 
 # Die aktuellen Paketlisten laden, Updates holen und Initialisierung laufen lassen,
 # danach wird wieder aufgeräumt
-RUN apt-get update \
+RUN touch /dev/null \
+	&& apt-get update \
 	&& apt-get -y dist-upgrade \
 	&& /docker/init/aptInstall.sh apt-utils bash
 
