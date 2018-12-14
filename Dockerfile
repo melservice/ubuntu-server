@@ -1,7 +1,7 @@
 FROM ubuntu:18.04
 
 LABEL version="1.0" \
-	description="Basis-Server auf Ubuntu-Basis" \
+	description="Basis-Service auf Ubuntu-Basis für weitere Docker basierte Services" \
 	maintainer="develop@melsaesser.de"
 
 # Verzeichnis für die Initialisierung des Images sowie Input und Output erstellen
@@ -14,8 +14,7 @@ ADD scripts/ /docker/init/
 
 # Die aktuellen Paketlisten laden, Updates holen und Initialisierung laufen lassen,
 # danach wird wieder aufgeräumt
-RUN touch /dev/null \
-	&& apt-get update \
+RUN apt-get update \
 	&& apt-get -y dist-upgrade \
 	&& /docker/init/aptInstall.sh apt-utils bash
 
