@@ -1,6 +1,6 @@
 # Das Image ubuntu-server
 
-Dies sind die Quellen für das Basis-Service-Image auf Ubuntu-Basis
+Dies sind die Quellen für das Basis-Service-Image melservice/ubuntu-server
 
 ## Organisation der Daten im Image
 
@@ -8,4 +8,4 @@ Die benötigten Dateien werden in zwei Kategorien eingeteilt. Die Eingangsdateie
 
 ## Skripte
 
-Der im Container laufende Dienst wird über ein Skript hochgefahren und auch beendet. Das Skript kopiert die Eingangsdateien aus dem Eingangsvolume an den korrekten Platz für den DHCP-Service. Die vom Service geschriebenen Dateien - die Verwaltung der Leases - werden beim Beenden in das Ausgabeverzeichnis kopiert.
+Der im Container laufende Dienst wird über ein Skript hochgefahren und auch beendet. Das Skript kopiert die Eingangsdateien aus dem Eingangsvolume an den korrekten Platz für den Service. Die vom Service geschriebenen Dateien werden dann beim Beenden in das Ausgabeverzeichnis kopiert, so dass sie beim nächsten Start eines Containers wieder zur Verfügung stehen.

@@ -4,13 +4,8 @@ LABEL version="1.0" \
 	description="Basis-Service auf Ubuntu-Basis für weitere Docker basierte Services" \
 	maintainer="develop@melsaesser.de"
 
-# Verzeichnis für die Initialisierung des Images sowie Input und Output erstellen
-RUN mkdir -p /docker/init/ \
-	&& mkdir -p /docker/input \
-	&& mkdir -p /docker/output
-
 # Die bereitgestellten Skripte und Einstellungen kopieren
-ADD scripts/ /docker/init/
+COPY rootfs /
 
 # Die aktuellen Paketlisten laden, Updates holen und Initialisierung laufen lassen,
 # danach wird wieder aufgeräumt
