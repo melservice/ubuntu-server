@@ -8,7 +8,8 @@ COPY rootfs /
 
 # Die aktuellen Paketlisten laden, Updates holen und Initialisierung laufen lassen,
 # danach wird wieder aufgeräumt
-RUN apt-get update --fix-missing -y \
+RUN find /docker/ -type f -name "*.sh" -exec chmod 755 "{}" \
+	apt-get update --fix-missing -y \
 	&& apt-get dist-upgrade --fix-missing -y \
 	&& /docker/init/aptInstall.sh apt-utils bash sudo openssl locales git \
 	&& /docker/init/create-ubuntu-server.sh
